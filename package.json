@@ -1,0 +1,31 @@
+{
+  "name": "@balazs31/new-component",
+  "version": "v0.4.5",
+  "scope": "balazs31",
+  "description": "CLI for creating new React components",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "cli",
+    "component"
+  ],
+  "author": "Balazs Kendi",
+  "license": "MIT",
+  "bin": {
+    "new-component": "./src/index.js"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.10.0",
+    "chalk": "2.1.0",
+    "clsx": "^1.1.0",
+    "commander": "2.11.0",
+    "i18next": "^19.0.3",
+    "i18next-browser-languagedetector": "^4.0.1",
+    "prettier": "^1.19.1",
+    "react-i18next": "^11.3.0"
+  }
+}
