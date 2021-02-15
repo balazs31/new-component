@@ -43,17 +43,15 @@ program
 const [componentName] = program.args;
 
 // Templates
-const templateComponentPath = "./templates/component.js";
-const templateDataPath = "./templates/component.data.js";
-const templateDocPath = "./templates/component.md";
-const templateIndexPath = "./templates/index.js";
+const templateComponentPath = "./templates/component.tsx";
+const templateStylesPath = "./templates/component.styles.ts";
+const templateIndexPath = "./templates/index.ts";
 
 // Target files
 const componentDir = `${program.dir}/${componentName}`;
-const componentPath = `${componentDir}/${componentName}.js`;
-const dataPath = `${componentDir}/${componentName}.data.js`;
-const docPath = `${componentDir}/${componentName}.md`;
-const indexPath = `${componentDir}/index.js`;
+const componentPath = `${componentDir}/${componentName}.tsx`;
+const stylesPath = `${componentDir}/${componentName}.styles.ts`;
+const indexPath = `${componentDir}/index.ts`;
 
 // Logging ...
 logIntro({ name: componentName, dir: componentDir });
@@ -103,30 +101,17 @@ mkDirPromise(componentDir)
     logItemCompletion("Component created.");
     return template;
   })
-  .then(() => readFilePromiseRelative(templateDataPath))
+  .then(() => readFilePromiseRelative(templateStylesPath))
   .then((template) =>
     // Replace our placeholders with real data (so far, just the component name)
     template.replace(/COMPONENT_NAME/g, componentName)
   )
   .then((template) =>
     // Format it using prettier, to ensure style consistency, and write to file.
-    writeFilePromise(dataPath, prettify(template))
+    writeFilePromise(stylesPath, prettify(template))
   )
   .then((template) => {
-    logItemCompletion("Data created.");
-    return template;
-  })
-  .then(() => readFilePromiseRelative(templateDocPath))
-  .then((template) =>
-    // Replace our placeholders with real data (so far, just the component name)
-    template.replace(/COMPONENT_NAME/g, componentName)
-  )
-  .then((template) =>
-    // Format it using prettier, to ensure style consistency, and write to file.
-    writeFilePromise(docPath, template)
-  )
-  .then((template) => {
-    logItemCompletion("Doc created.");
+    logItemCompletion("Styles created.");
     return template;
   })
 
