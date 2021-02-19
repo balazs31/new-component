@@ -1,6 +1,6 @@
 {
   "name": "@balazs31/new-component",
-  "version": "v0.4.5",
+  "version": "v0.5.1",
   "scope": "balazs31",
   "description": "CLI for creating new React components",
   "main": "src/index.ts",
